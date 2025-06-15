@@ -13,15 +13,15 @@ public class MainApplication {
 
         // --- Repository 생성 및 파일 로드 ---
         ProductRepository productRepository = new ProductRepository();
-        productRepository.setFilename("../data/products.txt");
+        productRepository.setFilename("src/data/products.txt");
         productRepository.loadFromFile();
 
         CustomerRepository customerRepository = new CustomerRepository();
-        customerRepository.setFilename("../data/customers.txt");
+        customerRepository.setFilename("src/data/customers.txt");
         customerRepository.loadFromFile();
 
         EmployeeRepository employeeRepository = new EmployeeRepository();
-        employeeRepository.setFilename("../data/employees.txt");
+        employeeRepository.setFilename("src/data/employees.txt");
         employeeRepository.loadFromFile();
 
         // --- Manager/Service에 Repository 주입 ---
@@ -31,7 +31,7 @@ public class MainApplication {
 
         // --- ReceiptRepository는 ProductManager를 주입받음 ---
         ReceiptRepository receiptRepository = new ReceiptRepository(productManager);
-        receiptRepository.setFilename("../data/receipts.txt");
+        receiptRepository.setFilename("src/data/receipts.txt");
         receiptRepository.loadFromFile();
 
         ReceiptManager receiptManager = new ReceiptManager(productManager, customerService, receiptRepository);
